@@ -342,10 +342,9 @@
                 <label for="printTitleSetting">Tiêu đề báo giá (ví dụ: BÁO GIÁ, BẢNG DỰ TOÁN,...):</label>
                 <input type="text" id="printTitleSetting" placeholder="BÁO GIÁ">
              </div>
-             <!-- THÊM MỚI: Tùy chọn tên người lập báo giá -->
              <div class="form-group">
-                <label for="printCreatorNameSetting">Chức danh người lập báo giá (ví dụ: NGƯỜI LẬP BÁO GIÁ, GIÁM ĐỐC,...):</label>
-                <input type="text" id="printCreatorNameSetting" placeholder="NGƯỜI LẬP BÁO GIÁ">
+                <label for="printCreatorNameSetting">Tên người lập báo giá (sẽ hiển thị dưới chữ ký):</label>
+                <input type="text" id="printCreatorNameSetting" placeholder="Nguyễn Văn A">
              </div>
              <div class="item-grid">
                  <div class="form-group">
@@ -441,6 +440,19 @@
             </table>
 
             <div class="bottom-section-flex">
+                <div class="summary-section-wrapper">
+                    <div class="summary-section">
+                        <p id="printSubTotalLine"><span>Tạm tính:</span> <strong id="printSubTotal"></strong></p>
+                        <p id="printDiscountLine" style="display:none;"><span>Giảm giá:</span> <strong id="printDiscountAmount"></strong></p>
+                        <p id="printSubTotalAfterDiscountLine" style="display:none;"><span>Thành tiền sau giảm giá:</span> <strong id="printSubTotalAfterDiscount"></strong></p>
+                        <p id="printTaxLine" style="display:none;"><span>Thuế VAT (<span id="printTaxPercent"></span>%):</span> <strong id="printTaxAmount"></strong></p>
+                        <p class="grand-total-print">
+                            <span>TỔNG CỘNG:</span> <strong id="printTotalPrice"></strong>
+                        </p>
+                        <p style="margin-top:5px; display:none;"><i>(Bằng chữ: <span id="printTotalInWords" style="font-weight:bold;"></span>)</i></p>
+                    </div>
+                </div>
+
                 <div class="notes-and-payment-section">
                     <div class="print-section-box" id="paymentSchedulePrint" style="display:none;">
                         <h3>Lịch thanh toán</h3>
@@ -455,19 +467,6 @@
                         <p id="printQuoteNotes"></p>
                     </div>
                 </div>
-
-                <div class="summary-section-wrapper">
-                    <div class="summary-section">
-                        <p id="printSubTotalLine"><span>Tạm tính:</span> <strong id="printSubTotal"></strong></p>
-                        <p id="printDiscountLine" style="display:none;"><span>Giảm giá:</span> <strong id="printDiscountAmount"></strong></p>
-                        <p id="printSubTotalAfterDiscountLine" style="display:none;"><span>Thành tiền sau giảm giá:</span> <strong id="printSubTotalAfterDiscount"></strong></p>
-                        <p id="printTaxLine" style="display:none;"><span>Thuế VAT (<span id="printTaxPercent"></span>%):</span> <strong id="printTaxAmount"></strong></p>
-                        <p class="grand-total-print">
-                            <span>TỔNG CỘNG:</span> <strong id="printTotalPrice"></strong>
-                        </p>
-                        <p style="margin-top:5px; display:none;"><i>(Bằng chữ: <span id="printTotalInWords" style="font-weight:bold;"></span>)</i></p>
-                    </div>
-                </div>
             </div>
 
             <div class="signatures">
@@ -476,9 +475,10 @@
                     <p class="signature-subtitle">(Ký, ghi rõ họ tên)</p>
                 </div>
                 <div class="signature-box">
-                    <!-- THÊM ID ĐỂ CẬP NHẬT TÊN NGƯỜI LẬP -->
-                    <p class="signature-title" id="printCreatorNameEl">NGƯỜI LẬP BÁO GIÁ</p>
+                    <!-- THAY ĐỔI: Cấu trúc phần chữ ký người lập -->
+                    <p class="signature-title">NGƯỜI LẬP BÁO GIÁ</p>
                     <p class="signature-subtitle">(Ký, đóng dấu, ghi rõ họ tên)</p>
+                    <p class="signature-name" id="printCreatorNameSignature"></p>
                 </div>
             </div>
         </div>
